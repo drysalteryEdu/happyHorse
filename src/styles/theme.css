@@ -1,0 +1,46 @@
+:root {
+  /* 水墨国风配色 */
+  --color-ink:        #1a1008;
+  --color-cinnabar:   #c0392b;   /* 朱砂红 - 玩家1 */
+  --color-azure:      #2471a3;   /* 青色  - 玩家2 */
+  --color-gold:       #d4a017;   /* 金色  - 分数/高亮 */
+  --color-paper:      #f5f0e8;   /* 宣纸  - 主背景 */
+  --color-paper-dark: #e8e0cf;   /* 深宣纸 - 卡片背景 */
+  --color-stone:      #8c7b6b;   /* 石色  - 次要文字 */
+  --color-jade:       #1e8449;   /* 翠绿  - 答对 */
+  --color-clay:       #c0703a;   /* 赭石  - 答错 */
+  --color-smoke:      rgba(26,16,8,0.06);
+
+  /* 玩家专属色 */
+  --p1-color:  var(--color-cinnabar);
+  --p2-color:  var(--color-azure);
+
+  /* 字体 */
+  --font-hanzi: 'Noto Serif SC', 'STSong', 'SimSun', serif;
+  --font-ui:    'Noto Sans SC', 'Microsoft YaHei', 'PingFang SC', sans-serif;
+
+  /* 字号 */
+  --size-display: clamp(4.5rem, 14vw, 9rem);
+  --size-meaning: clamp(0.95rem, 2.5vw, 1.25rem);
+  --size-option:  clamp(0.85rem, 2vw, 1.05rem);
+
+  /* 间距（4px base） */
+  --sp-1: 4px;   --sp-2: 8px;   --sp-3: 12px;
+  --sp-4: 16px;  --sp-6: 24px;  --sp-8: 32px;
+  --sp-12: 48px; --sp-16: 64px;
+
+  /* 圆角 */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+
+  /* 阴影 */
+  --shadow-sm:   0 1px 4px rgba(26,16,8,0.10);
+  --shadow-md:   0 3px 12px rgba(26,16,8,0.14);
+  --shadow-card: 0 2px 16px rgba(26,16,8,0.12);
+
+  /* 过渡 */
+  --t-fast:   120ms ease;
+  --t-normal: 280ms ease;
+  --t-slow:   500ms ease;
+}
