@@ -1,0 +1,51 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #fdf6e3;
+  --card: #fff8f0;
+  --border: #e0c89a;
+  --text: #3d2b1f;
+  --accent: #c0392b;
+  --btn: #e67e22;
+  --btn-hover: #d35400;
+  --radius: 12px;
+  font-family: 'PingFang SC', 'Microsoft YaHei', 'SimSun', sans-serif;
+}
+
+body { background: var(--bg); color: var(--text); min-height: 100vh; }
+
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: var(--radius);
+  padding: 10px 22px;
+  font-size: 16px;
+  font-family: inherit;
+  background: var(--btn);
+  color: #fff;
+  font-weight: 600;
+  transition: background 0.15s, transform 0.1s;
+}
+button:hover:not(:disabled) { background: var(--btn-hover); transform: translateY(-1px); }
+button:disabled { opacity: 0.5; cursor: not-allowed; }
+
+input {
+  padding: 10px 14px;
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 16px;
+  font-family: inherit;
+  background: #fff;
+  color: var(--text);
+  outline: none;
+  transition: border-color 0.15s;
+}
+input:focus { border-color: var(--btn); }
+
+.card {
+  background: var(--card);
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+}

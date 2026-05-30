@@ -1,0 +1,33 @@
+# 依赖
+node_modules/
+
+# 构建产物
+game/dist/
+
+# 本地缓存
+game/.vite/
+*.local
+
+# 大型数据文件（通过 build-game-data.js 预处理，public/data/ 已提交）
+chinese-xinhua/
+THUOCL/
+thuocl-data/
+pinyin-data/
+SimilarCharacter/
+
+# 根目录冗余文件
+/package.json
+/package-lock.json
+generate_idiom_questions.py
+generate_idiom_questions（复件）.py
+idiom_generation_sequence*.puml
+images/
+单位换算/
+generated_idiom_questions.txt
+
+# Vercel 本地配置
+.vercel/
+
+# OS
+.DS_Store
+Thumbs.db

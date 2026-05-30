@@ -1,0 +1,5 @@
+node_modules/
+dist/
+# public/data/*.json — 预生成数据已提交，Vercel 构建时跳过生成步骤
+.env.local
+.vercel

@@ -1,0 +1,25 @@
+{
+  "name": "hanzi-board-game",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "predev": "node scripts/build-game-data.js",
+    "dev": "vite",
+    "prebuild": "node scripts/build-game-data.js",
+    "build": "vue-tsc --noEmit && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "peerjs": "^1.5.4",
+    "pinia": "^2.1.7",
+    "vue": "^3.4.21",
+    "vue-router": "^4.3.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.0.4",
+    "typescript": "^5.4.0",
+    "vite": "^6.3.5",
+    "vue-tsc": "^2.0.29"
+  }
+}
