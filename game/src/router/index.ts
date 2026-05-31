@@ -3,7 +3,7 @@ import LobbyView from '@/views/LobbyView.vue'
 import GameView from '@/views/GameView.vue'
 
 export default createRouter({
-  history: createWebHistory(),
+  history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     { path: '/', component: LobbyView },
     { path: '/game', component: GameView },

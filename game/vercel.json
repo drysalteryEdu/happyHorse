@@ -1,5 +1,9 @@
 {
-  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }],
+  "rewrites": [
+    { "source": "/hanziBoard/assets/(.*)", "destination": "/assets/$1" },
+    { "source": "/hanziBoard/data/(.*)",   "destination": "/data/$1"   },
+    { "source": "/hanziBoard(.*)",         "destination": "/index.html" }
+  ],
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "installCommand": "npm install"

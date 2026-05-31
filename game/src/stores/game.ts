@@ -31,7 +31,7 @@ export const useGameStore = defineStore('game', {
     async loadGradeData(grade: number, semester: 'upper' | 'lower') {
       this.grade = grade
       this.semester = semester
-      const res = await fetch(`/data/grade${grade}-${semester}.json`)
+      const res = await fetch(`${import.meta.env.BASE_URL}data/grade${grade}-${semester}.json`)
       this.gradeChars = await res.json()
     },
 
