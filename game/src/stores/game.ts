@@ -1,13 +1,14 @@
 import { defineStore } from 'pinia'
 import { generateBoard } from '@/utils/boardGenerator'
 import { generateQuestion } from '@/utils/questionGenerator'
+import { saveGameRecord } from '@/lib/supabase'
 import type { GameState, Player, GameAction, CharData } from '@/types'
 
 const BOARD_SIZE = 30
 const WIN_POS = BOARD_SIZE - 1
 
 export const useGameStore = defineStore('game', {
-  state: (): GameState & { gradeChars: CharData[] } => ({
+  state: (): GameState & { gradeChars: CharData[]; _startedAt: number | null } => ({
     board: [],
     players: [],
     currentPlayerIdx: 0,
@@ -19,6 +20,7 @@ export const useGameStore = defineStore('game', {
     grade: 1,
     semester: 'lower',
     gradeChars: [],
+    _startedAt: null,
   }),
 
   getters: {
@@ -47,6 +49,7 @@ export const useGameStore = defineStore('game', {
       this.currentQuestion = null
       this.lastAnswerCorrect = null
       this.winner = null
+      this._startedAt = Date.now()
     },
 
     handleAction(action: GameAction, actorId: string) {
@@ -73,6 +76,17 @@ export const useGameStore = defineStore('game', {
       if (newPos === WIN_POS) {
         this.phase = 'finished'
         this.winner = cp.name
+        const loser = this.players.find(p => p.id !== cp.id)
+        const duration = this._startedAt ? Math.round((Date.now() - this._startedAt) / 1000) : null
+        saveGameRecord({
+          winner_name: cp.name,
+          loser_name: loser?.name ?? '未知',
+          grade: this.grade,
+          semester: this.semester,
+          duration_s: duration,
+          winner_pos: newPos,
+          loser_pos: loser?.position ?? null,
+        })
         return
       }
 
