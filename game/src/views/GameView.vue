@@ -19,8 +19,8 @@
     <!-- 游戏结束 -->
     <div v-if="game.phase === 'finished'" class="winner-overlay">
       <div class="winner-box">
-        <div class="trophy">🏆</div>
-        <h2>{{ game.winner }} 获胜！</h2>
+        <div class="trophy">🏆🎉</div>
+        <h2>🌟 {{ game.winner }} 获胜！</h2>
         <button @click="leave">返回大厅</button>
       </div>
     </div>
@@ -51,10 +51,10 @@ function leave() {
 .game-layout {
   max-width: 600px;
   margin: 0 auto;
-  padding: 12px 8px 24px;
+  padding: 12px 8px max(24px, env(safe-area-inset-bottom));
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
   position: relative;
 }
 

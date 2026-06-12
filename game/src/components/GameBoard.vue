@@ -79,14 +79,13 @@ function playersAt(idx: number) {
   display: grid;
   grid-template-columns: repeat(10, 1fr);
   grid-template-rows: repeat(3, 1fr);
-  gap: 4px;
-  min-height: 210px;
+  gap: clamp(2px, 0.8vw, 4px);
 }
 
 .cell {
   position: relative;
-  border-radius: 8px;
-  min-height: 60px;
+  border-radius: clamp(4px, 1.5vw, 8px);
+  aspect-ratio: 1;          /* 正方形自适应 */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -95,19 +94,29 @@ function playersAt(idx: number) {
   border: 2px solid transparent;
   transition: transform 0.15s;
   cursor: default;
+  overflow: hidden;
 }
 
-.cell.active { border-color: #f39c12; transform: scale(1.05); z-index: 2; }
+.cell.active {
+  border-color: #f39c12;
+  transform: scale(1.08);
+  z-index: 2;
+  box-shadow: 0 0 0 2px #f39c12, 0 4px 12px rgba(243,156,18,0.4);
+}
 
-.cell-char { font-size: 18px; font-weight: 700; line-height: 1.2; }
-.cell-label { font-size: 9px; opacity: 0.8; }
+.cell-char { font-size: clamp(10px, 3.2vw, 18px); font-weight: 700; line-height: 1.2; }
+.cell-label { font-size: clamp(6px, 1.8vw, 9px); opacity: 0.85; }
 
-.tokens { position: absolute; top: 2px; right: 2px; display: flex; gap: 1px; flex-wrap: wrap; max-width: 28px; }
+.tokens { position: absolute; top: 1px; right: 1px; display: flex; gap: 1px; flex-wrap: wrap; max-width: 40%; }
 .token {
-  width: 14px; height: 14px; border-radius: 50%;
+  width: clamp(10px, 3vw, 16px);
+  height: clamp(10px, 3vw, 16px);
+  border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
-  font-size: 8px; font-weight: 700; color: #fff;
-  border: 1px solid rgba(255,255,255,0.6);
+  font-size: clamp(6px, 1.8vw, 9px);
+  font-weight: 700; color: #fff;
+  border: 1.5px solid rgba(255,255,255,0.8);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.3);
 }
 .token-host { background: #e74c3c; }
 .token-guest { background: #2980b9; }

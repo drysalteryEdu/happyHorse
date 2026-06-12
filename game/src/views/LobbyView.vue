@@ -1,9 +1,14 @@
 <template>
   <div class="lobby">
     <div class="title-box">
-      <div class="logo">🎲</div>
+      <div class="logo">
+        <div class="logo-book">
+          <span class="logo-char">汉</span>
+          <div class="logo-stars">⭐️</div>
+        </div>
+      </div>
       <h1>汉字桌游</h1>
-      <p class="subtitle">小学语文 · 趣味棋盘游戏</p>
+      <p class="subtitle">🎒 小学语文 · 趣味棋盘对战</p>
     </div>
 
     <div class="card form-card">
@@ -134,15 +139,54 @@ watch(() => game.phase, (phase) => {
 .lobby {
   max-width: 480px;
   margin: 0 auto;
-  padding: 32px 16px;
+  padding: 24px 16px max(24px, env(safe-area-inset-bottom));
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 16px;
 }
 
-.title-box { text-align: center; }
-.logo { font-size: 56px; line-height: 1; }
-h1 { font-size: 32px; color: var(--accent); margin: 8px 0 4px; }
+.title-box { text-align: center; padding: 8px 0; }
+
+/* 卡通书本 Logo */
+.logo { display: flex; justify-content: center; margin-bottom: 4px; }
+.logo-book {
+  position: relative;
+  width: 88px; height: 88px;
+  background: linear-gradient(135deg, #e67e22, #f39c12);
+  border-radius: 16px 20px 20px 16px;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: -6px 0 0 #d35400, 0 6px 16px rgba(230,126,34,0.4);
+  border: 3px solid #c0392b;
+}
+.logo-book::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 8px; bottom: 8px;
+  width: 10px;
+  background: #d35400;
+  border-radius: 4px 0 0 4px;
+}
+.logo-char {
+  font-size: 42px;
+  font-weight: 900;
+  color: #fff;
+  text-shadow: 2px 2px 0 rgba(0,0,0,0.2);
+  font-family: serif;
+}
+.logo-stars {
+  position: absolute;
+  top: -10px; right: -10px;
+  font-size: 22px;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+}
+
+h1 {
+  font-size: clamp(24px, 7vw, 32px);
+  color: var(--accent);
+  margin: 8px 0 4px;
+  font-weight: 900;
+  letter-spacing: 2px;
+}
 .subtitle { color: #888; font-size: 14px; }
 
 .form-card { display: flex; flex-direction: column; gap: 16px; }
